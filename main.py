@@ -1,13 +1,16 @@
 from spy_details import spy_name,spy_salutation,spy_age,spy_rating
 from start_chat import start_chat
+
 print "Let's get started"
-question = "do you want to continue as " +spy_salutation + " " + spy_name + "(Y/N) :"
-existing =raw_input(question)
+
+question = "Do you want to continue as " + spy_salutation + " " + spy_name + " (Y/N)? "
+existing = raw_input(question)
+
 
 #valadating users input
 if (existing =='Y' or existing =='y') :
     #logic here
-    start_chat(spy_name,spy_age,spy_rating)
+    start_chat(spy_name,spy_salutation,spy_age,spy_rating)
 elif ( existing == 'N' or existing == 'n') :
     #new users code here
     spy_name = raw_input("Provide your name here :")
