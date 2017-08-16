@@ -1,9 +1,9 @@
-spy_name = 'bond'
+# default user details
 
-spy_salutation = 'Mr.'
-
-spy_age = 24
-
-spy_rating = 4.7
-
-spy_is_online = True
+spy = {
+    'name': "Honey",
+    'salutation': "Ms.",
+    'age': 21,
+    'rating': 4.5,
+    'is_online': True
+}
