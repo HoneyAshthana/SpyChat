@@ -15,12 +15,19 @@ if existing.upper() == "Y":
 elif existing.upper() == "N":
     # new user code here
     spy['name'] = raw_input("What is your name SPY: ")  # defining variable.
+    pattern = '^[a-zA-z\s]+$'
 
     if len(spy['name']) > 0:
         spy['salutation'] = raw_input("What should we call you(Mr. or Ms.): ")
-        spy['age'] = int(raw_input("Please enter your age : "))           # typecasting(converting string to int)
 
-        spy['name'] = spy['salutation'] + "" + spy['name']  # concatenation of name and salutation
+        while True:
+            try:
+                spy['age'] = int(raw_input("Please enter your age : "))           # typecasting(converting string to int)
+                break
+            except ValueError:
+                print "Invalid age .Try again"
+
+        spy['name'] = spy['salutation'] + "" + spy['name']  # concatenation of name and salutation[abcdd
         # assignment operator parsing is from r to l.
 
         spy['rating'] = float(raw_input("What is your spy rating?"))  # typecasting(int to float)
