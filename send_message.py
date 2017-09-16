@@ -17,7 +17,7 @@ def send_message():
     else:
         friend_choice = int(friend_choice)
         while True:
-            original_image = raw_input("Provide name of image to hide message into")
+            original_image = raw_input("Provide name of image to hide message info")
             if re.match(image_pattern, original_image, flags=0) is not None:
                 break
             else:

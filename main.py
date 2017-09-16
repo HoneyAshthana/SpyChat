@@ -35,14 +35,14 @@ elif existing.upper() == "N":
     print "Okay " + spy.name + "!! I would like to know more about you "
     while True:
         try:
-            spy.age = int(raw_input("Please enter your age : "))
+            spy.age = raw_input("Please enter your age : ")
             # typecasting(converting string to int)
-            if re.match(age_pattern, spy.age, flags=0) != None:
+            if re.match(age_pattern, spy.age) != None:
                 spy.age=int(spy.age)
                 break
             else:
                 print(Fore.RED+"Age can only be a integer. Please re enter your age:"+Fore.RESET);
-                break
+
         except ValueError:
             print Fore.RED+"Invalid age .Try again"
 
@@ -56,7 +56,7 @@ elif existing.upper() == "N":
             print Fore.RED+"Enter Again!!!!",
         # Checking If Spy is eligible
     if spy.rating <= 5.0 and spy.age > 12 and spy.age < 50:
-        start_chat(spy.Name, spy.Age, spy.Rating, spy.SpyOnline)
+        start_chat(spy.name, spy.age, spy.rating, spy.is_online)
 
     else:
         print Fore.RED+"Invalid Entry!!!!Start From Scratch."

@@ -22,15 +22,15 @@ def add_friend():
             print(Fore.RED + "Name can have only alphabets & cannot be null neither name cannot start with space. Please provide a valid name." + Fore.RESET);
     if len(new_name) <= 0:
          print Fore.RED+ "Name is not entered"
-    new_salutation = raw_input("How do you want to address your friend")
+    new_salutation = raw_input("How do you want to address your friend (Mr/Ms.) : ")
     new_friend.name = new_salutation + "." + new_name
     while True:
-        new_age = raw_input("Please enter the age:")
+        new_age = raw_input("Please enter the age : ")
         if re.match(age_pattern , new_age) != None:
             new_friend.age = int(new_age)
             break
         else:
-            print(Fore.RED + "Age can only be integer. Please re enter age:" + Fore.RESET);
+            print Fore.RED + "Age can only be integer. Please re enter age:"
 
     if new_friend.age <= 12 or new_friend.age >= 50:
         print Fore.RED+ "Age not supported"
@@ -43,10 +43,10 @@ def add_friend():
         else:
             print(Fore.RED + "Please provide a rating in decimal format. like 4.0 or 4.4 etc..!" + Fore.RESET)
 
-    if new_friend.rating <= 5.0 and new_friend.age > 12 and new_friend.age < 50 and new_friend.rating >= spy.rating:
+    if new_friend.rating <= 5.0 and new_friend.age > 12 and new_friend.age < 50 :
         # add_friend
         friends.append(new_friend)
-        print Fore.GREEN+"Friend Added"
+        print Fore.GREEN+"Friend is Added successfully"
     else:
         print Fore.RED+"Sorry invalid entry. We can not add your friend due to some error. Please check your details again."
 

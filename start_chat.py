@@ -24,7 +24,13 @@ def start_chat(name, age, rating, status):
                           "Name : " + name + "\n" \
                           "Age: " + str(age) + "\n" \
                           "Rating: " + str(rating) + "\n" \
-                          "You are awesome"
+
+        if rating > 4.0:
+            welcome_message = welcome_message + "You are awesome"
+        elif rating > 3.0:
+            welcome_message = welcome_message + "You are quite Good"
+        else:
+            welcome_message = welcome_message + "You need to work on it"
         print Fore.CYAN+welcome_message
 
         # displaying menu for user.
@@ -48,10 +54,12 @@ def start_chat(name, age, rating, status):
         elif result == 2:
             no_of_friends = add_friend()
             print "You have %d friends " % no_of_friends
-        elif(result == 3):
+        elif result == 3:
             send_message()
-        elif(result == 4):
+        elif result == 4:
             read_message()
+        elif result == 5:
+            read_chat()
         elif result == 6:
             # close application
             show_menu = False
