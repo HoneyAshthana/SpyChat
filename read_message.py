@@ -11,6 +11,7 @@ image_pattern="^[a-zA-Z0-9]+.jpg$"
 def read_message():
     # choose friend from the list
     sender = select_friend()
+
     if (sender == -1):
         print Fore.RED + "Wrong Choice" + Fore.RESET
     else:

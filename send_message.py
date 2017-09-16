@@ -15,15 +15,15 @@ def send_message():
     if friend_choice == -1:
         print Fore.RED + "wrong choice"
     else:
-        friend_choice = int(friend_choice)
+        friend_choice = (friend_choice)
         while True:
-            original_image = raw_input("Provide name of image to hide message info")
+            original_image = raw_input("Provide name of image to hide message : ")
             if re.match(image_pattern, original_image, flags=0) is not None:
                 break
             else:
-                print Fore.RED + "Image name must be alpha numeric and image extension must be .jpg" + Fore.RESET
+                print Fore.RED + "Image name must be alpha numeric and image extension must be .jpg"
         while True:
-            output_image = raw_input("Provide the name of output image")
+            output_image = raw_input("Provide the name of output image : ")
             if re.match(image_pattern, output_image, flags=0) is not None:
                 break
             else:
