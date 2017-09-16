@@ -2,29 +2,54 @@ from select_friend import select_friend
 from steganography.steganography import Steganography
 from datetime import datetime
 from globals import friends
+from colorama import init,Fore
+import re
 
+image_pattern="^[a-zA-Z0-9]+.jpg$"
+name_pattern="^[a-zA-Z]+[\sa-zA-Z]*$";
 
 def send_message():
     #function logic of choosing friend from the list
+
     friend_choice = select_friend()
+    if friend_choice == -1:
+        print Fore.RED + "wrong choice"
+    else:
+        friend_choice = int(friend_choice)
+        while True:
+            original_image = raw_input("Provide name of image to hide message into")
+            if re.match(image_pattern, original_image, flags=0) is not None:
+                break
+            else:
+                print Fore.RED + "Image name must be alpha numeric and image extension must be .jpg" + Fore.RESET
+        while True:
+            output_image = raw_input("Provide the name of output image")
+            if re.match(image_pattern, output_image, flags=0) is not None:
+                break
+            else:
+                print Fore.RED + "Image name must be alpha numeric and image extension must be .jpg" + Fore.RESET
+        while True:
+            text = raw_input("Enter your message")
+            if (len(text) > 100):
+                print Fore.RED+"Too large Message"
+            elif len(text)<0:
+                print Fore.RED + "Please provide some message. It cannot be empty." + Fore.RESET
+            else:
+                break
+        try:
+            Steganography.encode(original_image, output_image, text)
+            print Fore.GREEN + "Message encrypted successfully"
 
-    #prepare the  message
-    original_image = raw_input("Provide the name of the image to hide the message")
-    output_image = raw_input("Provide the name of the output image : ")
-    text = raw_input("Enter your message here : ")
+            # Save the chats
+            new_chat = {
+                'message': text,
+                'time': datetime.now(),
+                'send_by_me': True
+            }
 
-    #Encrypt the message
-    Steganography.encode(original_image,output_image,text)
+            # saving the dictionary
+            friends[friend_choice].get_chats().append(new_chat)
+            print "Message saved successfully" + Fore.RESET
 
-    #Successful message
-    print "Your mesasge  encrpyted successfully"
-
-    #saves the messages
-    new_chat = {
-        "message" : text,
-        "time" : datetime.now(),
-        "sent_by_me" : True
-    }
-
-    friends[friend_choice]['chats'].append(new_chat)
-    print "Your secret message is ready!"
+        except:
+            print Fore.RED + "NO such image exist in the module."
