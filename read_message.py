@@ -32,7 +32,7 @@ def read_message():
                 "sent_by_me": False
             }
             friends[sender].get_chats().append(new_chat)
-            print Fore.GREEN + "Message saved"
+            print Fore.GREEN + "Messages saved"
         except:
             print Fore.RED + "Sry either image is not available or the image does not contain any valid message" + Fore.RESET
 
