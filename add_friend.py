@@ -10,7 +10,6 @@ name_pattern = "^[a-zA-Z]+[\sa-zA-Z]*$"
 age_pattern = "^[0-9]+$"
 rating_pattern = "^[0-9]+\.[0-9]+$"
 
-
 # add new friends.
 def add_friend():
     new_friend = Spy(""," ",0,0.0)
