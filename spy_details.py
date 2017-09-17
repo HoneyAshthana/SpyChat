@@ -16,10 +16,9 @@ class Spy:
         avg=0
         if len(self.chat)!=0:
             for i in self.chat:
-                avg+=len(Steganography.decode(i.Message))
+                avg+=len(Steganography.decode(i['message']))
             avg=avg/len(self.chat)
             print "Average words : ",avg
 
     def displayDetails(self):
         print self.name, " ", self.age , " ", self.rating
-

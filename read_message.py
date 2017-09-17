@@ -4,7 +4,6 @@ from datetime import datetime
 from globals import friends
 import re
 from colorama import init,Fore
-
 init()
 image_pattern="^[a-zA-Z0-9]+.jpg$"
 
@@ -27,13 +26,15 @@ def read_message():
             print "The secret message is: " + secret_message
             #saves the messages
             new_chat = {
-                "message": secret_message,
+                "message": encrypted_image,
                 "time": datetime.now(),
-                "sent_by_me": False
+                "sentby": False
             }
-            friends[sender].get_chats().append(new_chat)
+            friends[sender].chat.append(new_chat)
             print Fore.GREEN + "Messages saved"
-        except:
+        except IOError:
+            print Fore.RED + "Sry either image is not available or the image does not contain any valid message" + Fore.RESET
+        except TypeError:
             print Fore.RED + "Sry either image is not available or the image does not contain any valid message" + Fore.RESET
 
 

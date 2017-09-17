@@ -20,7 +20,7 @@ def start_chat(name, age, rating, status):
         error_message = "Invalid age. Provide correct details."
         print error_message
     else:
-        welcome_message = "Authentication complete. Welcome\n " \
+        welcome_message = "Authentication complete. Welcome\n" \
                           "Name : " + name + "\n" \
                           "Age: " + str(age) + "\n" \
                           "Rating: " + str(rating) + "\n" \

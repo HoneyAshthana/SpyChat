@@ -7,7 +7,8 @@ init()
 def select_friend():
     counter = 1
     for friend in friends:
-        print str(counter) + ". " + friend.displayDetails()
+        print str(counter) + ". ",
+        friend.displayDetails()
         counter = counter + 1
 
     while True:

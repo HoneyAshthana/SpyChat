@@ -4,9 +4,9 @@ from datetime import datetime
 from globals import friends
 from colorama import init,Fore
 import re
-
+init()
 image_pattern="^[a-zA-Z0-9]+.jpg$"
-name_pattern="^[a-zA-Z]+[\sa-zA-Z]*$";
+name_pattern="^[a-zA-Z]+[\sa-zA-Z]*$"
 
 def send_message():
     #function logic of choosing friend from the list
@@ -29,7 +29,7 @@ def send_message():
             else:
                 print Fore.RED + "Image name must be alpha numeric and image extension must be .jpg" + Fore.RESET
         while True:
-            text = raw_input("Enter your message")
+            text = raw_input("Enter your message : ")
             if (len(text) > 100):
                 print Fore.RED+"Too large Message"
             elif len(text)<0:
@@ -42,14 +42,14 @@ def send_message():
 
             # Save the chats
             new_chat = {
-                'message': text,
+                'message': output_image,
                 'time': datetime.now(),
-                'send_by_me': True
+                'sentby': True
             }
 
             # saving the dictionary
-            friends[friend_choice].get_chats().append(new_chat)
+            friends[friend_choice].chat.append(new_chat)
             print "Message saved successfully" + Fore.RESET
 
-        except:
+        except IOError:
             print Fore.RED + "NO such image exist in the module."

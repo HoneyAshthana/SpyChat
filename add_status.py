@@ -3,13 +3,12 @@ from globals import STATUS_MESSAGES
 from colorama import Fore,init
 
 init()
-choice = True
 
 #updated status message
 updated_status_message=None
 
 def add_status():
-
+    choice = True
     while choice:
 
         # Ask user to choose from older older messages.
